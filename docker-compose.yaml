@@ -23,7 +23,7 @@ services:
     ports:
     - 8000:8000
     volumes:
-    - .:/app
+    - .:/var/www
     command: sh -c "composer install"
     entrypoint: sh -c "php artisan serve --host=0.0.0.0"
     depends_on:
@@ -33,7 +33,7 @@ services:
 
   db:
     container_name: admin_db
-    image: mysql:5.7.22
+    image: mysql:5.7.34
     environment:
       MYSQL_DATABASE: admin
       MYSQL_USER: root
@@ -43,6 +43,7 @@ services:
     - .dbdata:/var/lib/mysql
     ports:
     - 33866:3386
+    - 3306:3306
     networks:
       - app
 
