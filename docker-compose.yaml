@@ -30,13 +30,15 @@ services:
       - db
     networks:
       - app
+    links:
+      - "db:db"
 
   db:
     container_name: admin_db
     image: mysql:5.7.34
     environment:
       MYSQL_DATABASE: admin
-      MYSQL_USER: root
+      MYSQL_ROOT_USER: root
       MYSQL_PASSWORD: root
       MYSQL_ROOT_PASSWORD: root
     volumes:
