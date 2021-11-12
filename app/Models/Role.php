@@ -16,6 +16,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Role whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Role whereName($value)
  * @mixin \Eloquent
+ * @method static \Database\Factories\RoleFactory factory(...$parameters)
  */
 class Role extends Model
 {
