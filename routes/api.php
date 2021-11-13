@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ImageController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RolesController;
 use Illuminate\Http\Request;
@@ -37,8 +38,10 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::put('users/info', [UserController::class, 'updateInfo']);
     Route::put('user/password', [UserController::class, 'updatePassword']);
     Route::post('upload', [ImageController::class, 'upload']);
+    Route::get('export', [OrderController::class, 'export']);
 
     Route::apiResource('users', UserController::class);
     Route::apiResource('roles', RolesController::class);
     Route::apiResource('products', ProductController::class);
+    Route::apiResource('orders', OrderController::class)->only('index', 'show');
 });
