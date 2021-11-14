@@ -9,16 +9,22 @@ use Illuminate\Http\Request;
 class OrderController extends Controller
 {
     public function index() {
+        \Gate::authorize('view', 'orders');
+
         $order = Order::paginate();
 
         return OrderResource::collection($order);
     }
 
     public function show($id) {
+        \Gate::authorize('view', 'orders');
+
         return new OrderResource(Order::find($id));
     }
 
     public function export() {
+        \Gate::authorize('view', 'orders');
+        
         $headers = [
             "Content-Type" => "text/csv",
             "Content-Disposition" => "attachment; filename=orders.csv",
