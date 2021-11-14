@@ -868,12 +868,12 @@
 					"urlencoded": [
 						{
 							"key": "email",
-							"value": "ikoch@example.net",
+							"value": "test@test.com",
 							"type": "text"
 						},
 						{
 							"key": "password",
-							"value": "password",
+							"value": "1234",
 							"type": "text"
 						}
 					]
@@ -931,6 +931,12 @@
 							"key": "password_confirm",
 							"value": "1234",
 							"type": "text"
+						},
+						{
+							"key": "role_id",
+							"value": "1",
+							"type": "text",
+							"disabled": true
 						}
 					]
 				},
